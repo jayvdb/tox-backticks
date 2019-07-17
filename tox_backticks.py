@@ -15,7 +15,7 @@ def _get_used_envvars(value):
             continue
         used.add(g['substitution_value'])
         if g['default_value']:
-            used.add(_get_used_envvars(g['default_value']))
+            used.update(_get_used_envvars(g['default_value']))
 
     return used
 
