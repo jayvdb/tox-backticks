@@ -14,8 +14,6 @@ def _get_used_envvars(value):
         if g['sub_type'] != 'env':
             continue
         used.add(g['substitution_value'])
-        if g['default_value']:
-            used.add(_get_used_envvars(g['default_value']))
 
     return used
 
