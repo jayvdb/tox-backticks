@@ -122,3 +122,5 @@ def tox_runtest_pre(venv):
             uses -= resolved
 
     venv.envconfig.commands = reader.getargvlist('commands')
+    venv.envconfig.commands_pre = reader.getargvlist('commands_pre')
+    venv.envconfig.commands_post = reader.getargvlist('commands_post')
