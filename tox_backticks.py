@@ -33,7 +33,7 @@ def _run_backtick(reader, venv, variable):
             action=action,
             redirect=True,
             returnout=True,
-            ignore_ret=True,
+            ignore_ret=False,
         )
         action.setactivity('backticks', '{}={}'.format(variable, result))
 
