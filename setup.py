@@ -22,7 +22,7 @@ Development Status :: 4 - Beta
 
 setup(
     name='tox-backticks',
-    version='0.1.0',
+    version='0.2.0',
     description='Tox plugin to allow use of backticks for subcommands',
     license='MIT',
     author_email='jayvdb@gmail.com',
