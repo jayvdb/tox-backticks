@@ -74,6 +74,7 @@ def tox_testenv_create(venv, action):
             _run_backtick(reader, venv, variable)
             del backtick_variables[variable]
 
+    venv.envconfig.deps = reader.getargvlist('deps')
     venv.envconfig.commands = reader.getargvlist('commands')
     venv.envconfig.commands_pre = reader.getargvlist('commands_pre')
     venv.envconfig.commands_post = reader.getargvlist('commands_post')
