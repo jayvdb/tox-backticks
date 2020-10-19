@@ -44,7 +44,7 @@ def _run_backtick(reader, venv, variable):
 
 
 @hookimpl
-def tox_runtest_pre(venv):
+def tox_testenv_create(venv, action):
     """Post process config after parsing."""
     setenv = venv.envconfig.setenv
 
