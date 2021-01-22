@@ -1,7 +1,9 @@
 import re
+from distutils.version import LooseVersion
 
 import pluggy
-from tox.config import _ArgvlistReader, Replacer
+import tox
+from tox.config import Replacer, _ArgvlistReader
 
 hookimpl = pluggy.HookimplMarker('tox')
 
@@ -23,7 +25,12 @@ def _run_backtick(reader, venv, variable):
     value = setenv.definitions[variable]
     cmdstr = value[1:-1]
 
-    argvlist = _ArgvlistReader.getargvlist(reader, cmdstr, replace=True)
+    if LooseVersion(tox.__version__) < LooseVersion("3.21.0"):
+        argvlist = _ArgvlistReader.getargvlist(reader, cmdstr, replace=True)
+    else:
+        argvlist = _ArgvlistReader.getargvlist(
+            reader, cmdstr, replace=True, name="setenv"
+        )
     argv = argvlist[0]
 
     with venv.new_action('backticks', venv.envconfig.envdir) as action:
