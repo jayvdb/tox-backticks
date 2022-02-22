@@ -41,7 +41,7 @@ def _run_backtick(reader, venv, variable):
             redirect=True,
             returnout=True,
             ignore_ret=False,
-        )
+        ).strip()
         action.setactivity('backticks', '{}={}'.format(variable, result))
 
     setenv.definitions[variable] = result
